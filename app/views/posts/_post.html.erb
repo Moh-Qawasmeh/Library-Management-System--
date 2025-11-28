@@ -1,0 +1,43 @@
+<!--<div id="<%#= dom_id post %>" class="w-full sm:w-auto my-5 space-y-5">-->
+<!--  <div>-->
+<!--    <strong class="block font-medium mb-1">Title:</strong>-->
+    <%#= post.title %>
+<!--  </div>-->
+<!--  <div>-->
+<!--    <strong class="block font-medium mb-1">Content:</strong>-->
+    <%#= post.content %>
+<!--  </div>-->
+<!--  <div>-->
+<!--    <strong class="block font-medium mb-1">Published:</strong>-->
+    <%#= post.published? ? "Yes" : "No" %>
+<!--  </div>-->
+<!--  <div>-->
+<!--    <strong class="block font-medium mb-1">User:</strong>-->
+    <%#= post.user_id %>
+<!--  </div>-->
+<!--</div>-->
+
+<div id="<%= dom_id post %>" class="card mb-4 shadow-sm">
+  <div class="card-body">
+
+    <h5 class="card-title fw-bold mb-3"><%= post.title %></h5>
+
+    <p class="card-text">
+      <strong>Content:</strong><br>
+      <%= simple_format(post.content) %>
+    </p>
+
+    <p class="card-text mb-2">
+      <strong>Published:</strong>
+      <span class="badge <%= post.published? ? 'bg-success' : 'bg-secondary' %>">
+        <%= post.published? ? 'Yes' : 'No' %>
+      </span>
+    </p>
+
+    <p class="card-text">
+      <strong>Author:</strong>
+      <%= post.user.username %>
+    </p>
+
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<%# expects local var: commentable (Book or Post) %>
+<%= form_with(model: [commentable, comment], local: true) do |f| %>
+  <div class="field">
+    <%= f.text_area :content, rows: 3, placeholder: "Write your comment..." %>
+  </div>
+  <%= f.submit "Post Comment" %>
+<% end %>

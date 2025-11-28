@@ -1,0 +1,19 @@
+<h3>Top 10 Authors by Comment Count</h3>
+
+<table class="table table-striped table-hover mt-3">
+  <thead class="table-dark">
+  <tr>
+    <th>Author Name</th>
+    <th class="text-end">Total Comments</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @authors.each do |author| %>
+    <tr>
+      <td>
+        <%= link_to author.name, author_path(author), class: "fw-semibold" %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

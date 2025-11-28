@@ -1,0 +1,48 @@
+<%# content_for :title, "Showing category" %>
+
+<!--<div class="md:w-2/3 w-full">-->
+  <%# if notice.present? %>
+<!--    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%#= notice %></p>-->
+  <%# end %>
+
+<!--  <h1 class="font-bold text-4xl">Showing category</h1>-->
+
+  <%#= render @category %>
+
+  <%#= link_to "Edit this category", edit_category_path(@category), class: "w-full sm:w-auto text-center rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+  <%#= link_to "Back to categories", categories_path, class: "w-full sm:w-auto text-center mt-2 sm:mt-0 sm:ml-2 rounded-md px-3.5 py-2.5 bg-gray-100 hover:bg-gray-50 inline-block font-medium" %>
+  <%#= button_to "Destroy this category", @category, method: :delete, form_class: "sm:inline-block mt-2 sm:mt-0 sm:ml-2", class: "w-full rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium cursor-pointer", data: { turbo_confirm: "Are you sure?" } %>
+<!--</div>-->
+
+
+<% content_for :title, @category.name %>
+
+<div class="mb-3">
+  <h1 class="h3"><%= @category.name %> <small class="text-muted">(<%= @category.code %>)</small></h1>
+  <p><%= simple_format(@category.description.presence || "No description provided.") %></p>
+</div>
+
+<div class="mb-3">
+  <h4>Books in this category (<%= @category.books.count %>)</h4>
+  <% if @books.any? %>
+    <ul class="list-group">
+      <% @books.each do |book| %>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div>
+            <%= link_to book.title, book_path(book), class: "fw-bold" %>
+            <div class="small text-muted">by <%= book.author&.name || "Unknown" %> — <%= book.published_date %></div>
+          </div>
+          <div class="text-end">
+            <%= link_to "Show", book_path(book), class: "btn btn-sm btn-outline-secondary" %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p class="text-muted">No books in this category yet.</p>
+  <% end %>
+</div>
+
+<div class="mt-3">
+  <%= link_to "Back to categories", categories_path, class: "btn btn-secondary" %>
+</div>

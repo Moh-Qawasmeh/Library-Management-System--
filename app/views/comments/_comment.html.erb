@@ -1,0 +1,30 @@
+<div class="card mb-3 shadow-sm" id="comment_<%= comment.id %>">
+  <div class="card-body">
+
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h6 class="mb-0">
+        <strong><%= comment.user.username %></strong>
+      </h6>
+      <small class="text-muted"><%= time_ago_in_words(comment.created_at) %> ago</small>
+    </div>
+
+    <!-- Content -->
+    <p class="card-text"><%= simple_format(comment.content) %></p>
+
+    <!-- Actions -->
+    <% if user_signed_in? && (comment.user == current_user || current_user.admin?) %>
+      <div class="mt-2">
+        <%= link_to "Edit",
+                    polymorphic_path([comment.commentable, comment], action: :edit),
+                    class: "btn btn-sm btn-outline-primary me-2" %>
+
+        <%= link_to "Delete",
+                    polymorphic_path([comment.commentable, comment]),
+                    data: { turbo_method: :delete, turbo_confirm: "Delete this comment?" },
+                    class: "btn btn-sm btn-outline-danger" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>

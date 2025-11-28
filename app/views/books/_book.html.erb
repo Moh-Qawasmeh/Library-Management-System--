@@ -1,0 +1,41 @@
+<div id="<%= dom_id book %>" class="card shadow-sm mb-4">
+  <div class="card-body">
+
+    <h4 class="card-title mb-4"><%= book.title %></h4>
+
+    <ul class="list-group list-group-flush">
+
+      <li class="list-group-item">
+        <strong>ISBN:</strong>
+        <span class="ms-2"><%= book.isbn %></span>
+      </li>
+
+      <li class="list-group-item">
+        <strong>Description:</strong>
+        <span class="ms-2"><%= book.description %></span>
+      </li>
+
+      <li class="list-group-item">
+        <strong>Published:</strong>
+        <span class="ms-2"><%= book.published_date %></span>
+      </li>
+
+      <li class="list-group-item">
+        <strong>Page Count:</strong>
+        <span class="ms-2"><%= book.page_count %></span>
+      </li>
+
+      <li class="list-group-item">
+        <strong>Author:</strong>
+        <span class="ms-2"><%= book.author&.name %></span>
+      </li>
+
+      <li class="list-group-item">
+        <strong>Category:</strong>
+        <span class="ms-2"><%= book.category&.name %></span>
+      </li>
+
+    </ul>
+
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<h3>Books by Category</h3>
+
+<% if @category_id.blank? %>
+  <p class="text-muted">Please select a category above.</p>
+<% else %>
+  <table class="table table-bordered table-hover mt-3">
+    <thead class="table-dark">
+    <tr>
+      <th>Title</th>
+      <th>ISBN</th>
+      <th>Author</th>
+      <th>Published</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= link_to book.title, book_path(book) %></td>
+        <td><%= book.isbn %></td>
+        <td><%= book.author.name %></td>
+        <td><%= book.published_date %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>

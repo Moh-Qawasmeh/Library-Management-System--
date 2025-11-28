@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-body">
+    <%= form_with model: post, local: true do |f| %>
+
+      <div class="mb-3">
+        <%= f.label :title, class: "form-label" %>
+        <%= f.text_field :title, class: "form-control" %>
+      </div>
+
+      <div class="mb-3">
+        <%= f.label :content, class: "form-label" %>
+        <%= f.text_area :content, rows: 6, class: "form-control" %>
+      </div>
+
+      <div class="form-check mb-3">
+        <%= f.check_box :published, class: "form-check-input" %>
+        <%= f.label :published, "Published", class: "form-check-label" %>
+      </div>
+
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
