@@ -50,7 +50,7 @@
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-bs-toggle="dropdown">
-              👤 <%= current_user.username %>
+             Hello, <%= current_user.username %>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
               <li><%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %></li>

@@ -34,6 +34,9 @@ gem "devise"
 gem 'will_paginate', '~> 3.3.1'
 
 gem 'filterrific'
+
+gem "solid_queue"
+
 # gem 'popper_js' # Often needed explicitly for correct ordering
 # gem 'bootstrap' # Or whichever gem you chose
 # gem 'sassc-rails' # Needed for Bootstrap 5 CSS
