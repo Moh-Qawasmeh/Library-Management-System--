@@ -26,6 +26,7 @@
 
     <tbody>
     <% @posts.each do |post| %>
+     <% if current_user&.admin? || post.user == current_user || post.published %>
       <tr>
         <td><%= link_to post.title, post %></td>
         <td><%= post.user.name %></td>
@@ -52,6 +53,7 @@
           <% end %>
         </td>
       </tr>
+     <% end %>
     <% end %>
     </tbody>
   </table>
