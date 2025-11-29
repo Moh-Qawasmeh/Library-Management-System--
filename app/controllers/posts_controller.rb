@@ -13,7 +13,7 @@ class PostsController < ApplicationController
       @posts = @posts.where("title ILIKE ? OR content ILIKE ?", "%#{@query}%", "%#{@query}%")
     end
 
-    @posts = @posts.paginate(page: params[:page], per_page: 10)
+    @posts = @posts.paginate(page: params[:page], per_page: 25)
   end
 
   def show
